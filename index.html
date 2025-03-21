@@ -3,63 +3,77 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
+    <title>Paing Zone</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <style>
         .container {
-       
-  height: 200px;
-  position: relative;
+            height: 100vh;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            perspective: 1000px; /* 3D အနက်ကိုဖန်တီးရန် */
+            background: linear-gradient(135deg, #e0eafc, #cfdef3); /* နောက်ခံအရောင် */
+        }
 
-}
-
-.vertical-center {
-  margin: 0px;
-  position: relative;
-  top: 50%;
-  -ms-transform: translateY(-50%);
-  transform: translateY(-50%);
-}        
-.layout {
-            margin-top: 20px;
+        .layout {
+            margin: 20px 0;
             text-align: center;
         }
-        
+
+        .btn-3d {
+            position: relative;
+            padding: 15px 30px;
+            font-size: 18px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            transform-style: preserve-3d;
+            border: none;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn-3d:hover {
+            transform: translateZ(20px) rotateX(10deg); /* 3D လှုပ်ရှားမှု */
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+        }
+
+        .btn-outline-success.btn-3d {
+            background: linear-gradient(to right, #28a745, #218838);
+            color: white;
+        }
+
+        .btn-outline-primary.btn-3d {
+            background: linear-gradient(to right, #007bff, #0062cc);
+            color: white;
+        }
     </style>
-    
-    <title>SVPN Connect</title>
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-    
 </head>
 <body>
     <header>
         <div class="container">
-            
-       <div class="vertical-center">    
-            
-        <div class="layout">     
-          <button type="button" class="btn btn-outline-success" onclick="window.location.href='https://svpn.free.nf/online.php';">Online Users ကြည့်ရန်</button>
-         </div>
-
-       <div class="layout">     
-          <button type="button" class="btn btn-outline-primary" onclick="window.location.href='https://sansoe2022.github.io/SVPN/guidesim.html';">ပရိုမိုးရှင်း လမ်းညွှန်</button>
-         </div>
-         
-         <div class="layout">     
-          <button type="button" class="btn btn-outline-primary" onclick="window.location.href='https://sansoe2022.github.io/SVPN/extendsim.html';">ဆင်းမ်ကဒ် သက်တမ်းတိုးနည်း</button>
-         </div>
-
-<div class="layout">     
-          <button type="button" class="btn btn-outline-primary" onclick="window.location.href='https://sansoe2022.github.io/SVPN/dtacbug.html';">Dtac ဆင်းမ် အင်တာနက် 30฿</button>
-         </div>
-
-
-
-         
-         </div>
-         
-       </div>
-         
+            <div>
+                <div class="layout">
+                    <button type="button" class="btn btn-outline-success btn-3d" onclick="window.location.href='https://svpn.free.nf/online.php';">
+                        💰Short lesson(1) Prompts
+                    </button>
+                </div>
+                <div class="layout">
+                    <button type="button" class="btn btn-outline-primary btn-3d" onclick="window.location.href='https://sansoe2022.github.io/SVPN/guidesim.html';">
+                       💰Short lesson(2) Prompts
+                    </button>
+                </div>
+                <div class="layout">
+                    <button type="button" class="btn btn-outline-primary btn-3d" onclick="window.location.href='https://sansoe2022.github.io/SVPN/extendsim.html';">
+                        💰Short lesson(3) Prompts
+                    </button>
+                </div>
+                <div class="layout">
+                    <button type="button" class="btn btn-outline-primary btn-3d" onclick="window.location.href='https://sansoe2022.github.io/SVPN/dtacbug.html';">
+                       💰Short lesson(4) Prompts
+                    </button>
+                </div>
+            </div>
+        </div>
     </header>
-
 </body>
 </html>
