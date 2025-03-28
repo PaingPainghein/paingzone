@@ -239,7 +239,7 @@
                 }
             } catch (err) {
                 if (fallbackCopyText(originalPrompts)) {
-                    alert("Prompt 01-08 အားလုံးကို ကူးယူပြီးပါပြီ (Fallback နည်းလမ်းဖြင့်)။\n\n" + "ပြီးပါပြီ");
+                    alert("Prompt 01-08 အားလုံးကို ကူးယူပြီးပါပြီ ။\n\n" + "Copy ALL Done");
                 } else {
                     alert("ကူးယူမှု မအောင်မြင်ပါ။ ထပ်ကြိုးစားပါ။\n\n" + err);
                 }
@@ -280,7 +280,7 @@
             try {
                 if (navigator.clipboard && navigator.clipboard.writeText) {
                     await navigator.clipboard.writeText(lesson02Prompts);
-                    alert("Short Lesson 02 Prompt 01-26 အားလုံးကို ကူးယူပြီးပါပြီ။\n\n" + "ပြီးပါပြီ");
+                    alert("Short Lesson 02 Prompt 01-26 အားလုံးကို ကူးယူပြီးပါပြီ ။\n\n" + "Copy ALL Done");
                 } else {
                     throw new Error("Clipboard API မရရှိနိုင်ပါ");
                 }
@@ -321,13 +321,13 @@
             try {
                 if (navigator.clipboard && navigator.clipboard.writeText) {
                     await navigator.clipboard.writeText(lesson03Prompts);
-                    alert("Short Lesson 03 Prompt 01-20 အားလုံးကို ကူးယူပြီးပါပြီ။\n\n" + "ပြီးပါပြီ");
+                    alert("Short Lesson 03 Prompt 01-20 အားလုံးကို ကူးယူပြီးပါပြီ ။\n\n" + "Copy ALL Done");
                 } else {
                     throw new Error("Clipboard API မရရှိနိုင်ပါ");
                 }
             } catch (err) {
                 if (fallbackCopyText(lesson03Prompts)) {
-                    alert("Short Lesson 03 Prompt 01-20 အားလုံးကို ကူးယူပြီးပါပြီ (Fallback နည်းလမ်းဖြင့်)။\n\n" + "ပြီးပါပြီ");
+                    alert("Short Lesson 03 Prompt 01-20 အားလုံးကို ကူးယူပြီးပါပြီ ။\n\n" + "Copy ALL Done");
                 } else {
                     alert("ကူးယူမှု မအောင်မြင်ပါ။ ထပ်ကြိုးစားပါ။\n\n" + err);
                 }
