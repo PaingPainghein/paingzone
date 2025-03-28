@@ -92,24 +92,23 @@
         .social-icons .youtube { color: #ff0000; }
         .social-icons .facebook { color: #3b5998; }
         .social-icons .tiktok { color: #000000; }
-         /* Dark Mode Styles */
-        .dark-mode-enabled .container {
+        .social-icons .dark-mode { color: #f1c40f; } /* နေအိုင်ကွန် အဝါရောင် */
+        /* Dark Mode Styles */
+        .dark-mode-enabled body {
             background: linear-gradient(135deg, #2c3e50, #34495e); /* Dark Mode နောက်ခံ */
         }
-
-        .dark-mode-enabled footer p {
+        .dark-mode-enabled footer p,
+        .dark-mode-enabled footer a {
             color: #ecf0f1; /* Dark Mode စာသားအရောင် */
         }
-
-        .dark-mode-enabled .btn-outline-success.btn-3d {
-            background: linear-gradient(to right, #1d8348, #145a32); /* Dark Mode အစိမ်းခလုတ် */
+        .dark-mode-enabled .btn-primary.btn-3d {
+            background: linear-gradient(to right, #1d8348, #145a32); /* Dark Mode ခလုတ် */
         }
-
-        .dark-mode-enabled .btn-outline-primary.btn-3d {
-            background: linear-gradient(to right, #1b4f72, #154360); /* Dark Mode အပြာခလုတ် */
-        }
-
         .dark-mode-enabled .social-icons .dark-mode { color: #ecf0f1; } /* လမင်းအိုင်ကွန် အဖြူရောင် */
+        .dark-mode-enabled .card {
+            background: #34495e; /* Dark Mode ကတ်နောက်ခံ */
+            color: #ecf0f1; /* Dark Mode ကတ်စာသား */
+        }
     </style>
 </head>
 <body>
@@ -178,7 +177,7 @@
         </div>
 
         <footer class="text-center mt-4">
-            <p>Paing Zone Short Lesson FREE CC 2025</p>
+            <p>Paing Zone Short Lesson FREE CC 2025 | <a href="http://paingzone.duckdns.org/" target="_blank">http://paingzone.duckdns.org/</a></p>
             <div class="social-icons">
                 <a href="https://youtube.com/@paingzone?si=z2melJJ_rVOPOdr0" target="_blank" class="youtube"><i class="fab fa-youtube"></i></a>
                 <a href="https://www.facebook.com/painghein512" target="_blank" class="facebook"><i class="fab fa-facebook"></i></a>
@@ -200,8 +199,24 @@
     </script>
     <script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
-    <!-- Copy Functionality -->
+    <!-- Copy Functionality with Fallback -->
     <script>
+        // Fallback copy function
+        function fallbackCopyText(text) {
+            const textArea = document.createElement("textarea");
+            textArea.value = text;
+            document.body.appendChild(textArea);
+            textArea.select();
+            try {
+                document.execCommand('copy');
+                return true;
+            } catch (err) {
+                return false;
+            } finally {
+                document.body.removeChild(textArea);
+            }
+        }
+
         // Copy function for Original Prompts (01-08)
         async function copyOriginalPrompts() {
             const originalPrompts = [
@@ -216,10 +231,18 @@
             ].join("\n\n");
 
             try {
-                await navigator.clipboard.writeText(originalPrompts);
-                alert("Prompt 01-08 အားလုံးကို ကူးယူပြီးပါပြီ။\n\n" + "ပြီးပါပြီ");
+                if (navigator.clipboard && navigator.clipboard.writeText) {
+                    await navigator.clipboard.writeText(originalPrompts);
+                    alert("Prompt 01-08 အားလုံးကို ကူးယူပြီးပါပြီ။\n\n" + "ပြီးပါပြီ");
+                } else {
+                    throw new Error("Clipboard API မရရှိနိုင်ပါ");
+                }
             } catch (err) {
-                alert("ကူးယူမှု မအောင်မြင်ပါ။ ထပ်ကြိုးစားပါ။\n\n" + err);
+                if (fallbackCopyText(originalPrompts)) {
+                    alert("Prompt 01-08 အားလုံးကို ကူးယူပြီးပါပြီ (Fallback နည်းလမ်းဖြင့်)။\n\n" + "ပြီးပါပြီ");
+                } else {
+                    alert("ကူးယူမှု မအောင်မြင်ပါ။ ထပ်ကြိုးစားပါ။\n\n" + err);
+                }
             }
         }
 
@@ -255,10 +278,18 @@
             ].join("\n\n");
 
             try {
-                await navigator.clipboard.writeText(lesson02Prompts);
-                alert("Short Lesson 02 Prompt 01-26 အားလုံးကို ကူးယူပြီးပါပြီ။\n\n" + "ပြီးပါပြီ");
+                if (navigator.clipboard && navigator.clipboard.writeText) {
+                    await navigator.clipboard.writeText(lesson02Prompts);
+                    alert("Short Lesson 02 Prompt 01-26 အားလုံးကို ကူးယူပြီးပါပြီ။\n\n" + "ပြီးပါပြီ");
+                } else {
+                    throw new Error("Clipboard API မရရှိနိုင်ပါ");
+                }
             } catch (err) {
-                alert("ကူးယူမှု မအောင်မြင်ပါ။ ထပ်ကြိုးစားပါ။\n\n" + err);
+                if (fallbackCopyText(lesson02Prompts)) {
+                    alert("Short Lesson 02 Prompt 01-26 အားလုံးကို ကူးယူပြီးပါပြီ (Fallback နည်းလမ်းဖြင့်)။\n\n" + "ပြီးပါပြီ");
+                } else {
+                    alert("ကူးယူမှု မအောင်မြင်ပါ။ ထပ်ကြိုးစားပါ။\n\n" + err);
+                }
             }
         }
 
@@ -288,18 +319,21 @@
             ].join("\n\n");
 
             try {
-                await navigator.clipboard.writeText(lesson03Prompts);
-                alert("Short Lesson 03 Prompt 01-20 အားလုံးကို ကူးယူပြီးပါပြီ။\n\n" + "ပြီးပါပြီ");
+                if (navigator.clipboard && navigator.clipboard.writeText) {
+                    await navigator.clipboard.writeText(lesson03Prompts);
+                    alert("Short Lesson 03 Prompt 01-20 အားလုံးကို ကူးယူပြီးပါပြီ။\n\n" + "ပြီးပါပြီ");
+                } else {
+                    throw new Error("Clipboard API မရရှိနိုင်ပါ");
+                }
             } catch (err) {
-                alert("ကူးယူမှု မအောင်မြင်ပါ။ ထပ်ကြိုးစားပါ။\n\n" + err);
+                if (fallbackCopyText(lesson03Prompts)) {
+                    alert("Short Lesson 03 Prompt 01-20 အားလုံးကို ကူးယူပြီးပါပြီ (Fallback နည်းလမ်းဖြင့်)။\n\n" + "ပြီးပါပြီ");
+                } else {
+                    alert("ကူးယူမှု မအောင်မြင်ပါ။ ထပ်ကြိုးစားပါ။\n\n" + err);
+                }
             }
         }
-    </script>
 
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-     <script>
         // Dark Mode Toggle Functionality
         const darkModeToggle = document.getElementById('darkModeToggle');
         const body = document.body;
@@ -319,5 +353,9 @@
             }
         });
     </script>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>
