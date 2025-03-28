@@ -119,11 +119,7 @@
 
     <!-- Copy Functionality -->
     <script>
-        function copyAllPrompts() {
-            var copyText = document.getElementById("allPrompts");
-            copyText.select();
-            document.execCommand("copy");
-
+        async function copyAllPrompts() {
             const allPrompts = [
                 "Prompt 01: Create a highly detailed and vibrant digital illustration featuring a muscular white cat with exaggerated bodybuilder proportions, wearing red swim trunks, standing confidently on the deck of a luxurious cruise ship. Next to the muscular cat, include a smaller, cute white kitten wearing a pink and white striped dress, leaning playfully against the ship's railing. The background should showcase a clear blue ocean under a partly cloudy sky, with the ship's deck made of polished wood. Add a playful and whimsical atmosphere, with subtle hints of a 'please subscribe' theme, including small paw print and cat emoji icons floating around. Use bright, cheerful colors and a cartoonish art style",
                 "Prompt 02: Create a vibrant and whimsical digital illustration of an adorable white kitten with big round eyes, mid-jump in the air, wearing a cute pink dress with white accents and a small heart-shaped pendant. The kitten should have an excited and joyful expression, with its paws outstretched as if leaping with happiness. The background should feature the deck of a cruise ship with a wooden railing, and a dynamic ocean scene with splashing waves and a clear blue sea under a bright sky. Use a cartoonish art style with soft, cheerful colors to enhance the playful and energetic atmosphere",
@@ -135,7 +131,12 @@
                 "Prompt 08: Create a whimsical and dramatic digital illustration of a cute white kitten with big round eyes, struggling in the ocean with its paws flailing and mouth open in a panicked expression. The kitten should be wearing a pink dress with white accents and a pearl bracelet on one paw, with the dress slightly wet and clinging to its fur. In the background, include a large, luxurious cruise ship with multiple decks and illuminated windows, sailing on a vast blue ocean under a partly cloudy sky"
             ].join("\n\n");
 
-            alert("Prompt အားလုံးကို ကူးယူပြီးပါပြီ။\n\n" + allPrompts);
+            try {
+                await navigator.clipboard.writeText(allPrompts);
+                alert("Prompt အားလုံးကို ကူးယူပြီးပါပြီ။\n\n" + "ပြီးပါပြီ");
+            } catch (err) {
+                alert("ကူးယူမှု မအောင်မြင်ပါ။ ထပ်ကြိုးစားပါ။\n\n" + err);
+            }
         }
     </script>
 
