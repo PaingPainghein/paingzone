@@ -92,6 +92,24 @@
         .social-icons .youtube { color: #ff0000; }
         .social-icons .facebook { color: #3b5998; }
         .social-icons .tiktok { color: #000000; }
+         /* Dark Mode Styles */
+        .dark-mode-enabled .container {
+            background: linear-gradient(135deg, #2c3e50, #34495e); /* Dark Mode နောက်ခံ */
+        }
+
+        .dark-mode-enabled footer p {
+            color: #ecf0f1; /* Dark Mode စာသားအရောင် */
+        }
+
+        .dark-mode-enabled .btn-outline-success.btn-3d {
+            background: linear-gradient(to right, #1d8348, #145a32); /* Dark Mode အစိမ်းခလုတ် */
+        }
+
+        .dark-mode-enabled .btn-outline-primary.btn-3d {
+            background: linear-gradient(to right, #1b4f72, #154360); /* Dark Mode အပြာခလုတ် */
+        }
+
+        .dark-mode-enabled .social-icons .dark-mode { color: #ecf0f1; } /* လမင်းအိုင်ကွန် အဖြူရောင် */
     </style>
 </head>
 <body>
@@ -165,6 +183,7 @@
                 <a href="https://youtube.com/@paingzone?si=z2melJJ_rVOPOdr0" target="_blank" class="youtube"><i class="fab fa-youtube"></i></a>
                 <a href="https://www.facebook.com/painghein512" target="_blank" class="facebook"><i class="fab fa-facebook"></i></a>
                 <a href="https://www.tiktok.com/@paingzone?fbclid=IwY2xjawJTL85leHRuA2FlbQIxMAABHa8F_j7N1D2PfBDGC0RSMcexM24800Q0tBY4khW_8jrs7MXTdGfzZyJZKg_aem_UGovRgQJKLL16QBiF5ZuxQ" target="_blank" class="tiktok"><i class="fab fa-tiktok"></i></a>
+                <a href="#" class="dark-mode" id="darkModeToggle"><i class="fas fa-sun"></i></a>
             </div>
         </footer>
     </div>
@@ -280,5 +299,25 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+     <script>
+        // Dark Mode Toggle Functionality
+        const darkModeToggle = document.getElementById('darkModeToggle');
+        const body = document.body;
+
+        darkModeToggle.addEventListener('click', (e) => {
+            e.preventDefault(); // လင့်ခ်အနေနဲ့ မသွားအောင် တားရန်
+            body.classList.toggle('dark-mode-enabled');
+            
+            // အိုင်ကွန်ကို နေနဲ့ လ ပြောင်းခြင်း
+            const icon = darkModeToggle.querySelector('i');
+            if (body.classList.contains('dark-mode-enabled')) {
+                icon.classList.remove('fa-sun');
+                icon.classList.add('fa-moon');
+            } else {
+                icon.classList.remove('fa-moon');
+                icon.classList.add('fa-sun');
+            }
+        });
+    </script>
 </body>
 </html>
