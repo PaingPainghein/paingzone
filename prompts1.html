@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Paing Zone</title>
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome for Social Media Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <style>
         body {
             background: linear-gradient(135deg, #e0eafc, #cfdef3);
@@ -71,6 +73,24 @@
             border-radius: 5px;
             padding: 5px;
         }
+        /* Social Media Icons Styling */
+        .social-icons {
+            margin-top: 10px;
+        }
+        .social-icons a {
+            margin: 0 10px;
+            font-size: 24px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            transform-style: preserve-3d;
+            display: inline-block;
+        }
+        .social-icons a:hover {
+            transform: translateZ(15px); /* 3D အကျိုးသက်ရောက်မှု */
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+        }
+        .social-icons .youtube { color: #ff0000; }
+        .social-icons .facebook { color: #3b5998; }
+        .social-icons .tiktok { color: #000000; }
     </style>
 </head>
 <body>
@@ -101,7 +121,12 @@
         </div>
 
         <footer class="text-center mt-4">
-            <p>PPH Prompts FREE </p>
+            <p>PPH Prompts FREE</p>
+            <div class="social-icons">
+                <a href="https://youtube.com/@paingzone?si=z2melJJ_rVOPOdr0" target="_blank" class="youtube"><i class="fab fa-youtube"></i></a>
+                <a href="https://www.facebook.com/painghein512" target="_blank" class="facebook"><i class="fab fa-facebook"></i></a>
+                <a href="https://www.tiktok.com/@paingzone?fbclid=IwY2xjawJTL85leHRuA2FlbQIxMAABHa8F_j7N1D2PfBDGC0RSMcexM24800Q0tBY4khW_8jrs7MXTdGfzZyJZKg_aem_UGovRgQJKLL16QBiF5ZuxQ" target="_blank" class="tiktok"><i class="fab fa-tiktok"></i></a>
+            </div>
         </footer>
     </div>
 
