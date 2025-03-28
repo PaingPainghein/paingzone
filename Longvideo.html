@@ -1,1 +1,237 @@
 
+<!DOCTYPE html>
+<html lang="my">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paing Zone</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome for Social Media Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        body {
+            background: linear-gradient(135deg, #e0eafc, #cfdef3);
+        }
+        .container {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            perspective: 1000px; /* 3D အနက်ကိုဖန်တီးရန် */
+        }
+        .card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            transform-style: preserve-3d;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            background: #fff;
+            margin-bottom: 20px;
+        }
+        .card:hover {
+            transform: translateZ(20px) rotateY(10deg); /* 3D လှုပ်ရှားမှု */
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+        }
+        .card-body {
+            padding: 20px;
+            text-align: center;
+        }
+        .card-title {
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+        }
+        .btn-3d {
+            position: relative;
+            padding: 10px 20px;
+            font-size: 16px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            transform-style: preserve-3d;
+            border: none;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+        }
+        .btn-3d:hover {
+            transform: translateZ(15px); /* 3D အကျိုးသက်ရောက်မှု */
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+        }
+        .btn-primary.btn-3d {
+            background: linear-gradient(to right, #28a745, #218838);
+            color: white;
+        }
+        .img-thumbnail {
+            max-width: 100%;
+            border-radius: 10px;
+            margin: 10px 0;
+        }
+        .translate-btn {
+            margin-top: 20px;
+            text-align: center;
+        }
+        .title { color: black; }
+        .code-input {
+            width: 120px;
+            margin: 5px auto;
+            text-align: center;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 5px;
+        }
+        /* Social Media Icons Styling */
+        .social-icons {
+            margin-top: 10px;
+        }
+        .social-icons a {
+            margin: 0 10px;
+            font-size: 24px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            transform-style: preserve-3d;
+            display: inline-block;
+        }
+        .social-icons a:hover {
+            transform: translateZ(15px); /* 3D အကျိုးသက်ရောက်မှု */
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+        }
+        .social-icons .youtube { color: #ff0000; }
+        .social-icons .facebook { color: #3b5998; }
+        .social-icons .tiktok { color: #000000; }
+       
+       /* Dark Mode Styles */
+        .dark-mode-enabled .container {
+            background: linear-gradient(135deg, #2c3e50, #34495e); /* Dark Mode နောက်ခံ */
+        }
+
+        .dark-mode-enabled footer p {
+            color: #ecf0f1; /* Dark Mode စာသားအရောင် */
+        }
+
+        .dark-mode-enabled .btn-outline-success.btn-3d {
+            background: linear-gradient(to right, #1d8348, #145a32); /* Dark Mode အစိမ်းခလုတ် */
+        }
+
+        .dark-mode-enabled .btn-outline-primary.btn-3d {
+            background: linear-gradient(to right, #1b4f72, #154360); /* Dark Mode အပြာခလုတ် */
+        }
+
+        .dark-mode-enabled .social-icons .dark-mode { color: #ecf0f1; } /* လမင်းအိုင်ကွန် အဖြူရောင် */
+      
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- Translate Button -->
+        <div class="translate-btn">
+            <div id="google_translate_element"></div>
+        </div>
+
+        <header class="my-4 text-center">
+            <h1 class="card-title">💰Longvideo lesson လိုအပ်သောအရာများ</h1>
+        </header>
+
+            <!-- Third Card:  Lesson 01 Prompts (01-17) -->
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <img src="https://raw.githubusercontent.com/PaingPainghein/paingzone/refs/heads/main/img/icon.png" alt="Short Lesson 03" style="max-height: 50px; width: auto;">
+                        <img src="https://raw.githubusercontent.com/PaingPainghein/paingzone/refs/heads/main/img/photo_2025-03-28_15-52-31.jpg" class="img-thumbnail" alt="ပုံ">
+                        <p>Lesson 01 Prompts (01-17)</p>
+                        <input type="text" value="All Prompts 01-17" class="code-input" id="lesson03Prompts" readonly>
+                        <button class="btn btn-primary btn-3d btn-sm" onclick="copyLesson03Prompts()">ကူးယူရန် နှိပ်ပါ</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Fourth Card: Short Lesson 04 Prompts (Coming Soon) -->
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <img src="https://raw.githubusercontent.com/PaingPainghein/paingzone/refs/heads/main/img/icon.png" alt="Coming Soon" style="max-height: 50px; width: auto;">
+                        <img src="https://media.istockphoto.com/id/1356466745/vector/vector-illustration-coming-soon-banner-with-clock-sign.jpg?s=612x612&w=0&k=20&c=B3zjuvyrKLWPXmadC1TptchLH6et9P9-Nrr76Pia8Lo=" class="img-thumbnail" alt="ပုံ">
+                        <p>Lesson 02 Prompts (Coming Soon)</p>
+                        <input type="text" value="Coming Soon" class="code-input" readonly>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer class="text-center mt-4">
+            <p>Paing Zone Lesson FREE CC 2025</p>
+            <div class="social-icons">
+                <a href="https://youtube.com/@paingzone?si=z2melJJ_rVOPOdr0" target="_blank" class="youtube"><i class="fab fa-youtube"></i></a>
+                <a href="https://www.facebook.com/painghein512" target="_blank" class="facebook"><i class="fab fa-facebook"></i></a>
+               <a href="#" class="dark-mode" id="darkModeToggle"><i class="fas fa-sun"></i></a>
+                <a href="https://www.tiktok.com/@paingzone?fbclid=IwY2xjawJTL85leHRuA2FlbQIxMAABHa8F_j7N1D2PfBDGC0RSMcexM24800Q0tBY4khW_8jrs7MXTdGfzZyJZKg_aem_UGovRgQJKLL16QBiF5ZuxQ" target="_blank" class="tiktok"><i class="fab fa-tiktok"></i></a>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Google Translate script -->
+    <script type="text/javascript">
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({
+                pageLanguage: 'my',
+                includedLanguages: 'en,th,mm',
+                layout: google.translate.TranslateElement.InlineLayout.DROPDOWN
+            }, 'google_translate_element');
+        }
+    </script>
+    <script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+    <!-- Copy Functionality -->
+    <script>
+
+        // Copy function for Short Lesson 03 Prompts (01-16)
+        async function copyLesson03Prompts() {
+            const lesson03Prompts = [
+                "Prompt 01: A scene featuring an older Asian man and a young Asian woman. The woman is wearing a full-body, white, robotic suit, seemingly designed as a protective armor or futuristic uniform. She is seated inside a cardboard box, positioned slightly off-center to the right side of the image. Her expression is calm and composed, looking directly ahead. The man is seated to the left side, wearing glasses and a dark-colored jacket. Both figures are in a contemporary setting, likely an interior space. The lighting is subdued, creating a somewhat dramatic and futuristic atmosphere. The background shows a muted bluish-gray color scheme. The composition is two-figured and focused on the interactions and relationship between the two figures. The perspective is slightly angled toward the woman inside the box, emphasizing the mystery and curiosity of the situation. A sense of mystery and technology are present in the scene, with a subtle emphasis on the robotic suit. The overall style is cinematic and detailed",
+                "Prompt 02: A dramatic action scene: A masked man on a black motorcycle speeds through a narrow, bustling Asian market street. A man in a traditional orange robe chases him, wielding a long stick. Colorful prayer flags hang overhead. The scene is cinematic and slightly desaturated, with a gritty, realistic style. The motorcycle is a dark gray/black, modern-style bike. Include the subtly in the lower third. High detail, 8k resolution",
+                "Prompt 03: A photorealistic image of an adorable fluffy white kitten walking on a pebble street in a quaint Asian town. A young girl with dark hair, wearing a simple light-colored dress, walks ahead carrying a wicker basket. The scene is bathed in warm sunlight, with colorful umbrellas and a bustling marketplace visible in the soft-focus background. The focus is sharply on the kitten and girl",
+                "Prompt 04: Photorealistic hyperrealistic image of a fluffy yellow duckling with tiny robotic legs standing in the middle of a street. A motorcyclist in dark clothing and helmet rides away in the background. The setting is a bustling street market with colorful awnings and vendors. The scene is lit with dramatic sunlight and shadows, cinematic style, 8k resolution, octane render, unreal engine 5, trending on artstation",
+                "Prompt 05: A hyperrealistic image of a cute yellow duckling with robotic legs lying dead on a busy street in a Southeast Asian market. The duckling is lying on its side, its eyes closed. A small trail of blood is visible near its body. The background is slightly blurred, showing a bustling market with people, stalls, and motorcycles. The overall mood is somber and slightly surreal. 8k resolution, photorealistic, detailed textures, cinematic lighting",
+                "Prompt 06: A man on a motorcycle speeding through a dusty, crowded Asian market street at sunrise. The motorcycle kicks up a cloud of dust behind it. The man is wearing a dark hoodie and backpack, and other people are visible in the background, some running. The scene is gritty and atmospheric, with a cinematic feel. Focus on the motorcycle and the dust trail. Photorealistic rendering, 8k resolution, hyperrealistic details",
+                "Prompt 07: A photorealistic image of an adorable fluffy white kitten walking towards the camera on a wet, dark street. The kitten has large, expressive eyes. The background is slightly out of focus, showing a bustling, old-world marketplace with people and colorful umbrellas. Warm, golden sunlight illuminates the scene. The overall mood is heartwarming and charming. 8k resolution, hyperrealistic, cinematic lighting, depth of field",
+                "Prompt 08: A photorealistic image of a fluffy white kitten gently nuzzling a small yellow duckling lying on a wet asphalt road. The duckling has a small robotic leg attached. The background is slightly blurred, showing a busy street scene in a South Asian market with colorful umbrellas and bunting. Depth of field should focus on the kitten and duckling",
+                "Prompt 09: A cute white kitten pushing a tiny blue wagon carrying a sleeping yellow duckling down a street in Southeast Asia. The street is busy with people and a yellow three-wheeled auto rickshaw. A small white puppy is walking in the background. The scene is rendered in a hyperrealistic, cartoonish style with soft lighting and a slightly desaturated color palette. The focus is on the kitten and duckling",
+                "Prompt 10: A cute, fluffy white kitten with bandages on its paws gently tends to an injured yellow duckling also bandaged, both sitting on a rustic railway track. Soft, warm sunlight filters through the trees in the background. The scene evokes a feeling of gentleness and compassion. Hyperrealistic, 8k resolution, cinematic lighting, detailed textures",
+                "Prompt 11: A cute white kitten gently cradles a small yellow duckling under a light grey blanket. The duckling is nestled close, seemingly asleep. The scene is set in a sun-dappled forest clearing, with a large tree trunk in the background and some small yellow ducklings visible in the distance. The overall style is realistic digital painting with a soft, heartwarming feel. The lighting is soft and natural. High detail, 8k resolution, artstation quality",
+                "Prompt 12: A cute white kitten and a fluffy yellow duckling huddled together under a soft blue blanket near a warm campfire at night. The scene is soft, whimsical, and highly detailed, with a focus on the animals' adorable expressions. The campfire has glowing embers and wood logs. The background is slightly blurred, showing a grassy area and a wooden chair. Realistic style, 8k resolution, hyperrealistic, cinematic lighting",
+                "Prompt 13: A photorealistic image of an adorable white kitten standing by a shallow, clear stream. The stream is filled with smooth, grey rocks. Lush green vegetation and rolling hills form a beautiful backdrop. The kitten's reflection is clearly visible in the water. The scene is bathed in soft, natural light. High detail, 8k resolution, ultra realistic",
+                "Prompt 14: A fluffy white kitten with grey markings on its head, large expressive eyes, and a short tail, is curiously looking at a bird's nest containing three white eggs. The nest is made of twigs and is situated on the edge of a canal bank. The background features lush green vegetation, a stone bridge arching over the calm canal water, and soft, diffused sunlight. The overall style is photorealistic, with a dreamy, slightly whimsical feel. The scene is peaceful and serene",
+                "Prompt 15: A majestic bald eagle with outstretched wings soaring through a vibrant sunset sky, carrying a small, fluffy white kitten with joyful expression. The kitten's tail trails below. Below them, a picturesque landscape unfolds with lush green rice paddies, a tranquil waterway, and distant mountains. The scene is highly detailed, realistic, and painted in a style reminiscent of fantasy art. The lighting is dramatic, emphasizing the sunset hues. 8k resolution, hyperrealistic, trending on artstation",
+                "Prompt 16: A hyperrealistic digital painting of a fluffy white kitten being playfully carried by a majestic bald eagle against a vibrant blue sky with fluffy white clouds. The kitten appears to be dangling in mid-air, looking up at the eagle with a surprised expression. In the background, a serene landscape unfolds: a calm river, a small wooden boat floating gently, lush green grass, and a waterfall cascading down a rocky slope. The overall style is reminiscent of a fantasy children's book illustration, with highly detailed textures and lighting effects emphasizing the dynamic action and peaceful environment. The image should have a cinematic, almost movie poster-like quality",
+                "Prompt 17: A cute, scared white kitten with big blue eyes, submerged underwater, surrounded by bubbles. The water is dark teal, slightly blurry to show depth. The kitten's expression is one of fear and distress. The overall style is digital painting, slightly whimsical but with a melancholic tone. High detail, 8k resolution",
+            ].join("\n\n");
+
+            try {
+                await navigator.clipboard.writeText(lesson03Prompts);
+                alert("Short Lesson 03 Prompt 01-16 အားလုံးကို ကူးယူပြီးပါပြီ။\n\n" + "ပြီးပါပြီ");
+            } catch (err) {
+                alert("ကူးယူမှု မအောင်မြင်ပါ။ ထပ်ကြိုးစားပါ။\n\n" + err);
+            }
+        }
+    </script>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script>
+        // Dark Mode Toggle Functionality
+        const darkModeToggle = document.getElementById('darkModeToggle');
+        const body = document.body;
+
+        darkModeToggle.addEventListener('click', (e) => {
+            e.preventDefault(); // လင့်ခ်အနေနဲ့ မသွားအောင် တားရန်
+            body.classList.toggle('dark-mode-enabled');
+            
+            // အိုင်ကွန်ကို နေနဲ့ လ ပြောင်းခြင်း
+            const icon = darkModeToggle.querySelector('i');
+            if (body.classList.contains('dark-mode-enabled')) {
+                icon.classList.remove('fa-sun');
+                icon.classList.add('fa-moon');
+            } else {
+                icon.classList.remove('fa-moon');
+                icon.classList.add('fa-sun');
+            }
+        });
+    </script>
+</body>
+</html>
