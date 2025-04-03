@@ -163,13 +163,26 @@
                 </div>
             </div>
 
+              <!-- Third Card: Short Lesson 04 Prompts (01-06) -->
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <img src="https://raw.githubusercontent.com/PaingPainghein/paingzone/refs/heads/main/img/icon.png" alt="Short Lesson 04" style="max-height: 50px; width: auto;">
+                        <img src="https://raw.githubusercontent.com/PaingPainghein/paingzone/refs/heads/main/img/AI%20%E1%80%94%E1%80%B2%E1%80%B7%20%E1%80%A1%E1%80%9B%E1%80%99%E1%80%BA%E1%80%B8%E1%80%80%E1%80%BC%E1%80%B1%E1%80%AC%E1%80%80%E1%80%BA%E1%80%85%E1%80%9B%E1%80%AC%E1%80%80%E1%80%B1%E1%80%AC%E1%80%84%E1%80%BA%E1%80%B8%E1%80%90%E1%80%9A%E1%80%BA.png" class="img-thumbnail" alt="ပုံ">
+                        <p>Short Lesson 04 Prompts (01-06)</p>
+                        <input type="text" value="All Prompts 01-20" class="code-input" id="lesson04Prompts" readonly>
+                        <button class="btn btn-primary btn-3d btn-sm" onclick="copyLesson04Prompts()">ကူးယူရန် နှိပ်ပါ</button>
+                    </div>
+                </div>
+            </div>
+
             <!-- Fourth Card: Short Lesson 04 Prompts (Coming Soon) -->
             <div class="col-md-6">
                 <div class="card">
                     <div class="card-body">
                         <img src="https://raw.githubusercontent.com/PaingPainghein/paingzone/refs/heads/main/img/icon.png" alt="Coming Soon" style="max-height: 50px; width: auto;">
                         <img src="https://t3.ftcdn.net/jpg/02/77/69/26/360_F_277692690_xAGq27kZEjCmDq8D3lcttSjM6IeUVgKI.jpg" class="img-thumbnail" alt="ပုံ">
-                        <p>Short Lesson 04 Prompts (Coming Soon)</p>
+                        <p>Short Lesson 05 Prompts (Coming Soon)</p>
                         <input type="text" value="Coming Soon" class="code-input" readonly>
                     </div>
                 </div>
@@ -322,6 +335,32 @@
                 if (navigator.clipboard && navigator.clipboard.writeText) {
                     await navigator.clipboard.writeText(lesson03Prompts);
                     alert("Short Lesson 03 Prompt 01-20 အားလုံးကို ကူးယူပြီးပါပြီ ။\n\n" + "Copy ALL Done");
+                } else {
+                    throw new Error("Clipboard API မရရှိနိုင်ပါ");
+                }
+            } catch (err) {
+                if (fallbackCopyText(lesson03Prompts)) {
+                    alert("Short Lesson 03 Prompt 01-20 အားလုံးကို ကူးယူပြီးပါပြီ ။\n\n" + "Copy ALL Done");
+                } else {
+                    alert("ကူးယူမှု မအောင်မြင်ပါ။ ထပ်ကြိုးစားပါ။\n\n" + err);
+                }
+            }
+        }
+
+        // Copy function for Short Lesson 03 Prompts (01-20)
+        async function copyLesson04Prompts() {
+            const lesson04Prompts = [
+              "Prompt 01: A young child, light-skinned, toddler age, is positioned in a hallway, looking at a large, menacing monster. The child is wearing dark blue overalls and a light-colored top. The child is standing in the center-left of the image. The monster is large and fills a considerable portion of the image from the mid-ground to the upper right, with a dark, reddish-brown color, and glowing red eyes. The monster has sharp teeth and claws.  The room is a muted teal-gray.  The flooring is a light brownish-red checkered tile.  Light wooden cabinets are on the sides of the hallway, providing contrast. The lighting emphasizes the monster, creating a strong contrast with the child, who is in shadow. The perspective is slightly above the child, drawing attention to the imposing nature of the monster. The composition is dramatic, evoking a sense of fear and suspense. The atmosphere is intense and unsettling, suitable for a horror scene or illustration. The monster's appearance is grotesque and frightening, conveying a sense of danger and imminent threat.  The child's pose, facing the monster with a look of slight fear, further enhances the dramatic effect.",
+              "Prompt 02:A young child, likely Caucasian and pre-teen, is positioned in the foreground, facing directly at the viewer.  He is wearing simple overalls, and his expression is menacing with large, prominent, red eyes and a toothy grin that reveals sharp fangs.  His skin is pale, almost white. The child stands in a dark, shadowy interior setting, a large, monstrous creature, dark red in color, with sharp teeth and glowing red eyes, looms behind and above the child. The creature's body is textured and muscular, creating a sense of menace and power.  The background features dark teal and grey tones, and parts of a wooden, orange furniture piece are visible. The lighting is dramatic and highlights the child and creature's features, emphasizing the menacing atmosphere.  The perspective is slightly from below, focusing on the interaction between the child and creature. The composition is balanced, with the child occupying a portion of the foreground, and the creature dominating the background.  The style is digital art, evocative of horror and fantasy.  The overall atmosphere is suspenseful and unsettling ",
+              "Prompt 00:A creature with an unsettling, gaunt appearance peeks out from behind a window.  Its skin is pale, grayish-white, with deep wrinkles and crevices.  Large, dark, and unsettling eyes stare intently.  A prominent, toothy grin reveals sharp, pointed teeth.  Short, light-colored hair frames its head.  Its body is thin and skeletal-like, with long, clawed fingers gripping the window frame.  The creature's expression is menacing and unsettling.  It's positioned in the center-left portion of the frame, its body angled slightly to the viewer. It faces forward. The setting is a residential exterior at night.  The window frame and surrounding area are a muted bluish-gray. The exterior of a house and the sky are dark, with hints of a streetlight or outdoor light source illuminating the creature.  The image has a dark, eerie atmosphere and a style that evokes a horror film or creature feature. The lighting is dramatic and highlights the creature's features. The composition emphasizes the creature's menacing presence from behind the window. The perspective is from just inside and slightly above. Important details include the creature's elongated fingers, sharp claws, and the eerie expression. ",
+              "Prompt 01:A tall, thin, pale, humanoid figure, possibly an alien or creature, is crouched menacingly over a bed in a dark bedroom. The figure is positioned slightly above and to the right of the bed, in a three-quarter view. Its body is slender and appears gaunt, with a disproportionately large head compared to its body. The figure is looking down at the bed, and its expression is unsettling and ambiguous.  It is not wearing clothes, but dark-gray clothing partially obscures some of the body's features.  A sleeping person lies on the bed in a shadowed position.  The room is dimly lit, with muted blue-gray tones and a cool atmosphere. The composition focuses on the interaction between the figure and the bed, creating a tense and unsettling mood. The perspective is from slightly above the figure, emphasizing its looming presence over the sleeping figure on the bed. The lighting emphasizes the figure’s form and creates deep shadows. The style evokes a sense of mystery and fear.  Important details are the figure's unnatural height and thinness in comparison to the sleeping person, the dark and shadowy bedroom, and the figure's unsettling position above the bed. ",
+              "Prompt 02:Nightmarish figure, emaciated, with exaggerated, unsettling facial features.  Large, unsettling, vacant eyes, wide smile revealing excessively large, uneven teeth.  Pale, gray skin with dark, textured markings, giving a sense of decay.  ",
+            ].join("\n\n");
+
+            try {
+                if (navigator.clipboard && navigator.clipboard.writeText) {
+                    await navigator.clipboard.writeText(lesson03Prompts);
+                    alert("Short Lesson 04 Prompt 01-06 အားလုံးကို ကူးယူပြီးပါပြီ ။\n\n" + "Copy ALL Done");
                 } else {
                     throw new Error("Clipboard API မရရှိနိုင်ပါ");
                 }
