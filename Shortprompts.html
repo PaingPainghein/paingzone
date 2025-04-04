@@ -176,13 +176,27 @@
                 </div>
             </div>
 
-            <!-- Fourth Card: Short Lesson 04 Prompts (Coming Soon) -->
+  <!-- Third Card: Short Lesson 05 Prompts (01) -->
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <img src="https://raw.githubusercontent.com/PaingPainghein/paingzone/refs/heads/main/img/icon.png" alt="Short Lesson 04" style="max-height: 50px; width: auto;">
+                        <img src="https://raw.githubusercontent.com/PaingPainghein/paingzone/refs/heads/main/img/Short%20lesson(05).png" class="img-thumbnail" alt="ပုံ">
+                        <p>Short Lesson 05 Prompts (01)</p>
+                        <input type="text" value="Prompts 01" class="code-input" id="lesson05Prompts" readonly>
+                        <button class="btn btn-primary btn-3d btn-sm" onclick="copyLesson05Prompts()">ကူးယူရန် နှိပ်ပါ</button>
+                    </div>
+                </div>
+            </div>
+
+            
+            <!-- Fourth Card: Short Lesson 06 Prompts (Coming Soon) -->
             <div class="col-md-6">
                 <div class="card">
                     <div class="card-body">
                         <img src="https://raw.githubusercontent.com/PaingPainghein/paingzone/refs/heads/main/img/icon.png" alt="Coming Soon" style="max-height: 50px; width: auto;">
                         <img src="https://t3.ftcdn.net/jpg/02/77/69/26/360_F_277692690_xAGq27kZEjCmDq8D3lcttSjM6IeUVgKI.jpg" class="img-thumbnail" alt="ပုံ">
-                        <p>Short Lesson 05 Prompts (Coming Soon)</p>
+                        <p>Short Lesson 06 Prompts (Coming Soon)</p>
                         <input type="text" value="Coming Soon" class="code-input" readonly>
                     </div>
                 </div>
@@ -373,6 +387,28 @@
             }
         }
 
+// Copy function for Short Lesson 05 Prompts (01)
+        async function copyLesson05Prompts() {
+            const lesson05Prompts = [
+              "write:5 image ptompts in wich rabbit working like human promptd should be in detailed",
+            
+
+            try {
+                if (navigator.clipboard && navigator.clipboard.writeText) {
+                    await navigator.clipboard.writeText(lesson05Prompts);
+                    alert("Short Lesson 05 Prompt အားလုံးကို ကူးယူပြီးပါပြီ ။\n\n" + "Copy ALL Done");
+                } else {
+                    throw new Error("Clipboard API မရရှိနိုင်ပါ");
+                }
+            } catch (err) {
+                if (fallbackCopyText(lesson05Prompts)) {
+                    alert("Short Lesson 05 Prompt အားလုံးကို ကူးယူပြီးပါပြီ ။\n\n" + "Copy ALL Done");
+                } else {
+                    alert("ကူးယူမှု မအောင်မြင်ပါ။ ထပ်ကြိုးစားပါ။\n\n" + err);
+                }
+            }
+        }
+        
         // Dark Mode Toggle Functionality
         const darkModeToggle = document.getElementById('darkModeToggle');
         const body = document.body;
